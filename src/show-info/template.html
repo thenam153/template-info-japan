@@ -1,5 +1,39 @@
-<div ng-repeat="item in self.students track by $index">
+<div ng-click="self.showStudent = !self.showStudent;" style="    background: red;display: inline;cursor: pointer;">
+    Switch Mode
+</div>
+<div ng-show="self.showStudent">
     <div>
-        <img  style="width: 400px;height: 600px;" src="https://schooler.sun-asterisk.com/{{item.avatar}}" alt="">
+        Sinh viên
+    </div>
+    <div>
+        <div ng-repeat="item in self.students track by $index" style="display: inline-block;margin-right: 16px;width: 200px;">
+            <div>
+                <img ng-if="item.avatar != '/storage/images/avatar/student/default-avatar.svg '" style="width: 150px;height: 200px;display: block;border: 1px solid black;" src="https://schooler.sun-asterisk.com{{item.avatar}}" alt="">
+                <div>
+                    <div>Tên: {{item.name}}</div>
+                    <div>Khóa: {{item.yearCode}}</div>
+                    <div>Trường: {{item.university_identity}}</div>
+                    <div>MSSV: {{item.identity}}</div>
+                </div>
+                <!-- <img ng-if="item.avatar == '/storage/images/avatar/student/default-avatar.svg '"  style="width: 150px;height: 200px;display: block;border: 1px solid black;" src="" alt="No avatar"> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="!self.showStudent">
+    <div>
+        Giáo viên
+    </div>
+    <div>
+        <div ng-repeat="item in self.teachers track by $index" style="display: inline-block;margin-right: 16px;width: 200px;">
+            <div>
+                <img style="width: 150px;height: 200px;display: block;border: 1px solid black;" src="https://schooler.sun-asterisk.com{{item.avatar}}" alt="">
+                <div>
+                    <div>Tên: {{item.name}}</div>
+                    <div>Trường: {{item.universities[0].identity}}</div>
+                    <div>SĐT: {{item.telephone}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

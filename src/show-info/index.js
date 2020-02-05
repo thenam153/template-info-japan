@@ -18,4 +18,6 @@ app.component(componentName, {
   function infoJapan($scope, $timeOut, $http) {
         const self = this;
         this.students = config.students;
+        this.teachers = config.teachers;
+        this.showStudent = true;
   }
