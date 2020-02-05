@@ -4,7 +4,8 @@ module.exports = {
   name: moduleName
 };
 var app = angular.module(moduleName, []);
-
+var config = require('../config/config');
+console.log(config);
 app.component(componentName, {
     template: require('./template.html'),
     controller: infoJapan,
@@ -15,5 +16,6 @@ app.component(componentName, {
   infoJapan.$inject = ['$scope', '$timeout', '$http'];
 
   function infoJapan($scope, $timeOut, $http) {
-    
+        const self = this;
+        this.students = config.students;
   }
